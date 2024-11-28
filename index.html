@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Расширенный Шаблонизатор на JavaScript</title>
+</head>
+<body>
+
+<!-- Шаблон для рендеринга -->
+<script id="template" type="text/html">
+    <h1>Привет, {{ name }}!</h1>
+    <p>У вас {{ count }} новых уведомлений.</p>
+
+    {{#if count > 0}}
+    <p>У вас есть уведомления.</p>
+    {{else if count === 0}}
+    <p>У вас нет новых уведомлений.</p>
+    {{/if}}
+
+    {{#if messages.length > 0}}
+    <h2>Сообщения:</h2>
+    <ul>
+        {{#for message in messages}}
+        <li>{{ message }}</li>
+        {{/for}}
+    </ul>
+    {{else}}
+    <p>Нет новых сообщений.</p>
+    {{/if}}
+</script>
+
+<div id="output"></div>
+
+<script src="TemplateRenderer.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
